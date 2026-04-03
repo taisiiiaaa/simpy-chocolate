@@ -123,7 +123,7 @@ input {
   border-radius: 30px;
   margin-bottom: 72px;
   background-image:
-    linear-gradient(rgba(30, 24, 35, 0.4)), url("/img/hero-banner.jpg");
+    linear-gradient(rgba(30, 24, 35, 0.4)), url("../img/hero-banner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
