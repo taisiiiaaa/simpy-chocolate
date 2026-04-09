@@ -352,7 +352,9 @@
               </p>
             </li>
           </ul>
-          <button class="leave-review" type="button">Leave a review</button>
+          <button class="leave-review" type="button" data-modal-active>
+            Leave a review
+          </button>
         </div>
       </section>
     </main>
@@ -402,5 +404,77 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop" data-modal>
+      <div class="modal">
+        <button class="modal-close" type="button" data-modal-hidden>
+          <svg class="icon" width="28" height="28" aria-hidden="true">
+            <use href="./img/icons.svg#ic-close"></use>
+          </svg>
+        </button>
+        <h2 class="modal-heading">
+          Leave a review about <span class="accent-text">our chocolate</span>
+        </h2>
+        <form class="review-form" action="submit">
+          <label class="form-label" for="name">Name</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="text"
+              id="name"
+              name="name"
+              required />
+            <svg class="input-icon" width="24" height="24">
+              <use href="./img/icons.svg#ic-user"></use>
+            </svg>
+          </div>
+          <label class="form-label" for="email">Email</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="email"
+              id="email"
+              name="email"
+              required />
+            <svg class="input-icon" width="24" height="24">
+              <use href="./img/icons.svg#ic-email"></use>
+            </svg>
+          </div>
+          <label class="form-label" for="phone">Phone</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="tel"
+              id="phone"
+              name="phone"
+              required />
+            <svg class="input-icon" width="24" height="24">
+              <use href="./img/icons.svg#ic-phone"></use>
+            </svg>
+          </div>
+          <label class="form-label" for="comment">Comment</label>
+          <textarea
+            class="form-textarea"
+            id="comment"
+            name="comment"
+            required></textarea>
+          <div class="policy">
+            <input type="checkbox" id="policy" name="policy" required />
+            <label class="policy-label" for="policy">
+              <span class="custom-checkbox">
+                <svg width="10" height="10" aria-hidden="true">
+                  <use href="./img/icons.svg#ic-tick"></use>
+                </svg> </span
+              >I accept the terms and conditions of the&ensp;
+              <a class="policy-link" href="/">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button class="submit-review" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./index.js" defer></script>
   </body>
 </html>
