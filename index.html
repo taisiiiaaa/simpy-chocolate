@@ -20,7 +20,7 @@
       <div class="wrapper">
         <a class="logo" href="./index.html">
           <p><span class="logo-italic">Simply</span> Chocolate</p>
-          <svg width="24" height="24" aria-hidden="true">
+          <svg width="21" height="21" aria-hidden="true">
             <use href="./img/icons.svg#ic-logo"></use>
           </svg>
         </a>
@@ -47,8 +47,43 @@
             </li>
           </ul>
         </nav>
+        <div class="ham-menu">
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </header>
+
+    <div class="off-screen-menu">
+      <div class="off-screen-menu-wrapper">
+        <ul class="menu-nav-links">
+          <li><a class="menu-nav-link" href="./index.html">Home</a></li>
+          <li>
+            <a class="menu-nav-link" href="#how-its-made">How it's made?</a>
+          </li>
+          <li>
+            <a class="menu-nav-link" href="#is-loved">Chocolate is loved</a>
+          </li>
+        </ul>
+        <ul class="menu-socials">
+          <li>
+            <a class="menu-social" href="/" target="_blank">
+              <svg class="menu-icon" width="22" height="22">
+                <use href="./img/icons.svg#ic-ig"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="menu-social" href="/" target="_blank">
+              <svg class="menu-icon" width="22" height="22">
+                <use href="./img/icons.svg#ic-tw"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <main>
       <section class="hero">
         <div class="wrapper">
@@ -67,7 +102,7 @@
           <a class="scroll-down" href="#footer">
             <p>scroll down</p>
             <div class="icon-wrapper">
-              <svg class="icon" width="22" height="22" aria-hidden="true">
+              <svg class="icon" width="16" height="16" aria-hidden="true">
                 <use href="./img/icons.svg#ic-arrow-down"></use>
               </svg>
             </div>
@@ -138,6 +173,7 @@
               <div class="content">
                 <img
                   src="./img/milky-choc.png"
+                  srcset="./img/milky-choc.png 1x, ./img/milky-choc@2x.png 2x"
                   alt="Milk chocolate pieces"
                   width="206"
                   height="160" />
@@ -166,6 +202,7 @@
               <div class="content">
                 <img
                   src="./img/milk.png"
+                  srcset="./img/milk.png 1x, ./img/milk@2x.png 2x"
                   alt="Bottle of fresh milk"
                   width="206"
                   height="160" />
@@ -195,6 +232,7 @@
               <div class="content">
                 <img
                   src="./img/choc-drops.png"
+                  srcset="./img/choc-drops.png 1x, ./img/choc-drops@2x.png 2x"
                   alt="Chocolate drops"
                   width="206"
                   height="160" />
@@ -224,6 +262,7 @@
               <div class="content">
                 <img
                   src="./img/nuts.png"
+                  srcset="./img/nuts.png 1x, ./img/nuts@2x.png 2x"
                   alt="Forest nuts"
                   width="206"
                   height="160" />
@@ -258,11 +297,18 @@
             How it's <span class="accent-text">made?</span>
           </h2>
           <div class="instructions">
-            <img
-              src="./img/how-its-made.jpg"
-              alt="Chocolate cooking demonstration"
-              width="600"
-              height="400" />
+            <picture class="made-image">
+              <source
+                media="(min-width: 768px)"
+                srcset="./img/made.jpg 1x, ./img/made@2x.jpg 2x" />
+              <source
+                media="(min-width: 320px)"
+                srcset="./img/made-mob.jpg 1x, ./img/made-mob@2x.jpg 2x" />
+              <img
+                src="./img/how-its-made.jpg"
+                alt="Chocolate cooking demonstration"
+                width="600" />
+            </picture>
             <div class="steps">
               <h3 class="sub-subheading black">
                 Try our chocolates today and discover the perfect balance of
@@ -304,7 +350,7 @@
           </div>
         </div>
       </section>
-      <section id="is-loved" class="loved">
+      <!-- <section id="is-loved" class="loved">
         <div class="wrapper">
           <h2 class="subheading">
             <span class="accent-text">Chocolate</span> is loved
@@ -314,6 +360,7 @@
               <img
                 class="client"
                 src="./img/client-1.png"
+                srcset="./img/client-1.png 1x, ./img/client-1@2x.png 2x"
                 alt=""
                 width="80"
                 height="80" />
@@ -327,6 +374,7 @@
               <img
                 class="client"
                 src="./img/client-2.png"
+                srcset="./img/client-2.png 1x, ./img/client-2@2x.png 2x"
                 alt=""
                 width="80"
                 height="80" />
@@ -341,6 +389,7 @@
               <img
                 class="client"
                 src="./img/client-3.png"
+                srcset="./img/client-3.png 1x, ./img/client-3@2x.png 2x"
                 alt=""
                 width="80"
                 height="80" />
@@ -356,7 +405,7 @@
             Leave a review
           </button>
         </div>
-      </section>
+      </section> -->
     </main>
     <footer id="footer" class="page-footer">
       <div class="wrapper">
@@ -384,9 +433,17 @@
         <hr class="divider" />
         <div class="footer-bottom">
           <ul class="footer-nav">
-            <li><a class="nav-link white" href="./index.html">Home</a></li>
+            <li>
+              <a class="nav-link white" href="./index.html">Home</a>
+            </li>
             <li>
               <a class="nav-link white" href="#how-its-made">How it's made?</a>
+            </li>
+            <li>
+              <a class="nav-link white" href="/">Our products</a>
+            </li>
+            <li>
+              <a class="nav-link white" href="/">Top sellers</a>
             </li>
             <li>
               <a class="nav-link white" href="#is-loved">Chocolate is loved</a>
