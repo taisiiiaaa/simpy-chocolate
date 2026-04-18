@@ -316,7 +316,7 @@ input {
 
 .main-heading {
   font-weight: 500;
-  font-size: clamp(18px, 1.14vw + 14.4px, 28px);
+  font-size: clamp(18px, 1.2vw + 15px, 28px);
   line-height: 1.21429;
   letter-spacing: -0.03em;
   color: #fff;
@@ -330,8 +330,8 @@ input {
   font-size: 14px;
   line-height: 1.21;
   color: #fff;
-  padding-block: clamp(12px, 2vw, 14px);
-  padding-inline: clamp(18px, 5vw, 40px);
+  padding-block: clamp(12px, 3vw, 14px);
+  padding-inline: clamp(18px, 5.5vw, 40px);
   border: none;
   border-radius: 100px;
   background-color: #fd9222;
@@ -353,8 +353,8 @@ input {
   font-size: 14px;
   line-height: 1.21;
   color: #fff;
-  padding-block: clamp(12px, 2vw, 14px);
-  padding-inline: clamp(18px, 6vw, 40px);
+  padding-block: clamp(12px, 3vw, 14px);
+  padding-inline: clamp(18px, 5.5vw, 40px);
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 100px;
@@ -404,17 +404,6 @@ input {
   position: relative;
   flex: 1 1 100%;
 }
-
-/* .our-values li:not(:last-child)::after {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  height: 124px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  position: absolute;
-  right: -18px;
-  top: 60px;
-} */
 
 .our-values .icon {
   margin-bottom: 22px;
@@ -493,14 +482,14 @@ input {
   gap: 20px;
   justify-content: center;
   flex-direction: column;
-  max-width: 335px;
+  max-width: 336px;
   margin: 0 auto;
 }
 
-.ingr-list li {
+.ingredient-wrapper {
   position: relative;
   overflow: hidden;
-  flex: 1 0 auto;
+  flex: 0 0 100%;
 }
 
 .ingr-list img {
@@ -508,7 +497,7 @@ input {
   flex-shrink: 0;
 }
 
-.ingr-list li:hover .overlay {
+.ingr-list .ingredient-wrapper:hover .overlay {
   transform: translateY(0);
 }
 
@@ -660,6 +649,7 @@ input {
 
 .made-image {
   flex-shrink: 0;
+  margin: 0 auto;
 }
 
 .instructions {
@@ -733,6 +723,7 @@ input {
 
 .reviews {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 28px;
   margin-bottom: 50px;
@@ -746,7 +737,7 @@ input {
 
 .page-footer {
   background-color: #1e1823;
-  padding-block: clamp(32px, 4vw, 50px);
+  padding-block: clamp(32px, 6.5vw, 50px);
 }
 
 .page-footer .wrapper {
@@ -758,7 +749,7 @@ input {
   display: flex;
   justify-content: space-between;
   gap: 32px;
-  margin-bottom: clamp(32px, 4vw, 50px);
+  margin-bottom: clamp(32px, 6.5vw, 50px);
   flex-direction: column;
 }
 
@@ -824,13 +815,14 @@ address {
 
 .email-input {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: -0.02em;
   color: #fff;
   background-color: transparent;
   border: 1.5px solid rgba(255, 255, 255, 0.15);
   border-radius: 30px;
   padding: 13px 24px;
+  max-width: 320px;
   width: 100%;
   transition: border-color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61);
 }
@@ -1098,4 +1090,126 @@ address {
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #fd9222;
+}
+
+@media screen and (min-width: 375px) {
+  .hero .wrapper {
+    padding: 395px 40px 20px 40px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero .wrapper {
+    padding: 671px 72px 40px 72px;
+    flex-direction: row;
+  }
+  .scroll-down {
+    align-self: flex-end;
+  }
+  .hero {
+    background-image:
+      linear-gradient(rgba(30, 24, 35, 0.4)), url("../img/hero-bg-768.jpg");
+    @media screen and (min-resolution: 192dpi) {
+      background-image:
+        linear-gradient(rgba(30, 24, 35, 0.4)), url("../img/hero-bg-768@2x.jpg");
+    }
+  }
+  .ham-menu {
+    display: none;
+  }
+  .off-screen-menu {
+    display: none;
+  }
+  .nav {
+    display: flex;
+  }
+  .our-values {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 60px 32px;
+  }
+  .our-values li {
+    flex: 0 0 calc(50% - 30px);
+  }
+  .ingr-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: initial;
+    margin: 0;
+  }
+  .ingredient-wrapper {
+    flex: 0 0 calc(100% / 2 - 32px / 2);
+    margin: 0;
+  }
+  .how-its-made .wrapper {
+    max-width: 670px;
+  }
+  .footer-top {
+    flex-direction: row;
+  }
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+  .newsletter {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .footer-nav {
+    flex-direction: row;
+    li {
+      &:nth-child(3),
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero .wrapper {
+    padding: 381px 72px 40px 72px;
+  }
+  .hero {
+    background-image:
+      linear-gradient(rgba(30, 24, 35, 0.4)), url("../img/hero-bg-1200.jpg");
+    @media screen and (min-resolution: 192dpi) {
+      background-image:
+        linear-gradient(rgba(30, 24, 35, 0.4)),
+        url("../img/hero-bg-1200@2x.jpg");
+    }
+  }
+  .our-values {
+    flex-wrap: nowrap;
+    gap: 88px;
+  }
+  .our-values li {
+    flex: 0 1 calc(100% / 3 - 88px / 3);
+  }
+  .our-values li:not(:last-child)::after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 124px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    right: -18px;
+    top: 60px;
+  }
+  .ingr-list {
+    flex-wrap: nowrap;
+    gap: 19px;
+  }
+  .ingredient-wrapper {
+    flex: 0 1 calc(100% / 4 - 19px / 4);
+  }
+  .instructions {
+    flex-direction: row;
+  }
+  .email-input {
+    font-size: 18px;
+  }
 }
