@@ -59,8 +59,8 @@ input {
 }
 
 .page-header {
-  margin-top: 20px;
-  margin-bottom: 14px;
+  padding-block-start: 20px;
+  padding-block-end: 14px;
 }
 
 .page-header .wrapper {
@@ -250,7 +250,7 @@ input {
 .hero .wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 240px 32px 20px 32px;
+  padding: 300px 32px 24px 32px;
   flex-direction: column;
   row-gap: 32px;
 }
@@ -306,7 +306,7 @@ input {
 .hero-content {
   display: flex;
   flex-direction: column;
-  row-gap: clamp(20px, 1.4vw + 18px, 32px);
+  row-gap: 32px;
 }
 
 .cta-btns {
@@ -886,10 +886,13 @@ address {
   position: relative;
   background-color: #fafafa;
   border-radius: 15px;
-  padding: 40px;
+  padding-block: clamp(24px, 6vw, 40px);
+  padding-inline: clamp(24px, 3vw, 40px);
+  margin: 32px 20px;
   max-width: 517px;
-  width: 100%;
   max-height: 794px;
+  width: 100%;
+  z-index: 1000;
   transition: transform 0.3s cubic-bezier(0, 0.34, 0.86, 0.61);
 }
 
@@ -923,13 +926,13 @@ address {
 
 .modal-heading {
   font-weight: 600;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
   line-height: 1.17;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   color: #111;
-  max-width: 300px;
+  max-width: 80%;
 }
 
 .form-label {
@@ -938,13 +941,15 @@ address {
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgba(64, 64, 64, 0.3);
-  margin-bottom: 6px;
+  margin-bottom: clamp(4px, 1vw, 6px);
 }
 
 .form-input {
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: 13px;
-  padding: 20px 24px 20px 62px;
+  padding-left: 62px;
+  padding-block: clamp(14px, 2vw, 20px);
+  padding-inline-end: clamp(18px, 3vw, 24px);
   width: 100%;
   font-weight: 400;
   font-size: 14px;
@@ -966,7 +971,7 @@ address {
 
 .input-wrapper {
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: clamp(8px, 3vw, 18px);
 }
 
 .input-icon {
@@ -987,7 +992,7 @@ address {
   border-radius: 13px;
   background-color: transparent;
   padding: 20px 24px 20px 24px;
-  margin-bottom: 22px;
+  margin-bottom: clamp(8px, 2.5vw, 18px);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
@@ -1024,28 +1029,6 @@ address {
   color: #fd9222;
 }
 
-.policy {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 40px;
-}
-
-.custom-checkbox {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 6px;
-  border: 1px solid rgba(17, 17, 17, 0.14);
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  fill: transparent;
-  transition:
-    background-color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61),
-    fill 0.2s cubic-bezier(0, 0.34, 0.86, 0.61),
-    border-color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61);
-}
-
 #policy {
   position: absolute;
   width: 1px;
@@ -1059,13 +1042,13 @@ address {
   white-space: nowrap;
 }
 
-#policy:checked + .policy-label .custom-checkbox {
+#policy:checked + .custom-checkbox {
   background-color: #fd9222;
   border: none;
   fill: #fff;
 }
 
-#policy:focus + .policy-label .custom-checkbox {
+#policy:focus + .custom-checkbox {
   outline: 2px solid #fd9222;
   outline-offset: 2px;
 }
@@ -1074,27 +1057,67 @@ address {
   border-color: #fd9222;
 }
 
-.policy-label {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  cursor: pointer;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: -0.02em;
-  color: rgba(64, 64, 64, 0.6);
-}
-
 .policy-link {
+  display: inline-block;
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #fd9222;
 }
 
+.checkbox {
+  margin-bottom: clamp(18px, 5vw, 40px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+  margin-right: 12px;
+  transition:
+    background-color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61),
+    fill 0.2s cubic-bezier(0, 0.34, 0.86, 0.61),
+    border-color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61);
+}
+
+.checkbox-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 0.6);
+}
+
+.checkbox:hover .custom-checkbox {
+  border-color: #fd9222;
+}
+
+.check-icon {
+  opacity: 0;
+  fill: #fff;
+  transition: opacity 250ms cubic-bezier(0, 0.34, 0.86, 0.61);
+}
+
+#policy:checked + .custom-checkbox {
+  background-color: #fd9222;
+  border: none;
+}
+
+#policy:checked + .custom-checkbox .check-icon {
+  opacity: 1;
+}
+
 @media screen and (min-width: 375px) {
   .hero .wrapper {
-    padding: 395px 40px 20px 40px;
+    padding: 405px 40px 32px 40px;
   }
 }
 
@@ -1167,11 +1190,18 @@ address {
       }
     }
   }
+  .input-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
+  .logo {
+    font-size: 18px;
+  }
   .hero .wrapper {
-    padding: 381px 72px 40px 72px;
+    padding: 395px 72px 40px 72px;
   }
   .hero {
     background-image:
