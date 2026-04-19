@@ -38,4 +38,16 @@
       toggleModal()
     }
   }
+
+  const cards = document.querySelectorAll(".ingredient-wrapper")
+
+  cards.forEach((card) => {
+    card.addEventListener("touchstart", () => {
+      card.classList.add("active")
+    })
+
+    card.addEventListener("touchend", () => {
+      card.classList.remove("active")
+    })
+  })
 })()

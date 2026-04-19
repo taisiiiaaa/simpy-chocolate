@@ -499,8 +499,14 @@ input {
   flex-shrink: 0;
 }
 
-.ingr-list .ingredient-wrapper:hover .overlay {
+.ingredient-wrapper:hover .overlay {
   transform: translateY(0);
+  opacity: 1;
+}
+
+.ingredient-wrapper.active .overlay {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .ingr-list .content {
@@ -510,17 +516,20 @@ input {
 
 .overlay {
   position: absolute;
-  padding: 20px;
+  padding: clamp(22px, 2.5vw, 28px);
   top: 0;
   left: 0;
   max-width: 100%;
   height: 100%;
   background-color: #fff;
+  opacity: 0;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   transform: translateY(101%);
-  transition: transform 0.3s cubic-bezier(0.71, 0.86, 0.99, 0.79);
+  transition:
+    transform 0.3s cubic-bezier(0.71, 0.86, 0.99, 0.79),
+    opacity 0.4s cubic-bezier(0.71, 0.86, 0.99, 0.79);
 }
 
 .overlay-heading {
@@ -688,7 +697,7 @@ input {
 }
 
 .loved .subheading {
-  margin-bottom: clamp(74px, 4vw, 91px);
+  margin-bottom: clamp(32px, 5vw, 60px);
 }
 
 .review {
@@ -731,10 +740,8 @@ input {
 
 .reviews {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 28px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .leave-review:hover,
@@ -1116,6 +1123,49 @@ address {
 
 #policy:checked + .custom-checkbox .check-icon {
   opacity: 1;
+}
+
+.slider {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  gap: 28px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scroll-marker-group: after;
+  padding-top: 42px;
+}
+
+.slider::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.card {
+  scroll-snap-align: start;
+  margin: 0 auto;
+}
+
+.card::scroll-marker {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: rgba(17, 17, 17, 0.1);
+  border-radius: 10px;
+  transition:
+    background-color 200ms cubic-bezier(0, 0.34, 0.86, 0.61),
+    width 200ms cubic-bezier(0, 0.34, 0.86, 0.61);
+}
+
+.card::scroll-marker:target-current {
+  background-color: #fd9222;
+  width: 28px;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (min-width: 375px) {
