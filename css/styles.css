@@ -44,6 +44,9 @@ input {
   outline: none;
   background: none;
 }
+.no-scroll {
+  overflow: hidden;
+}
 &::-webkit-scrollbar {
   width: 6px;
   transition: background-color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61);
@@ -81,8 +84,7 @@ input {
   gap: 4px;
   align-items: center;
   font-weight: 700;
-  /* font-size: 18px; */
-  font-size: 14px;
+  font-size: clamp(14px, 2vw, 18px);
   line-height: 1.11111;
   letter-spacing: -0.03em;
   color: #111;
@@ -98,17 +100,17 @@ input {
   stroke: #111;
   fill: transparent;
   cursor: pointer;
-  transition: color 0.2s cubic-bezier(0, 0.34, 0.86, 0.61);
+  transition: stroke 0.2s cubic-bezier(0, 0.34, 0.86, 0.61);
 }
 
 .social:hover .icon,
 .social:focus .icon {
-  color: #fd9222;
+  stroke: #fd9222;
 }
 
 .nav {
   display: flex;
-  gap: 90px;
+  gap: clamp(48px, 7vw, 90px);
   align-items: center;
 
   display: none;
@@ -454,7 +456,7 @@ input {
 .body-text {
   font-size: 14px;
   letter-spacing: -0.02em;
-  line-height: 1.21;
+  line-height: 1.29;
   color: #111;
   text-align: center;
 }
@@ -620,7 +622,11 @@ input {
 }
 
 .ingr-list img {
-  margin-bottom: 36px;
+  margin-bottom: clamp(
+    25px,
+    calc(25px + (36 - 25) * ((100vw - 320px) / (1200 - 320))),
+    36px
+  );
 }
 
 .ingr-list li:nth-child(1) .content {
@@ -687,7 +693,9 @@ input {
 
 .review {
   position: relative;
-  flex-basis: calc(100% - 28px * 2 / 3);
+  flex: 0 0 100%;
+  margin: 0 auto;
+  max-width: 360px;
   background-color: #fff;
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.1);
@@ -1048,11 +1056,6 @@ address {
   fill: #fff;
 }
 
-#policy:focus + .custom-checkbox {
-  outline: 2px solid #fd9222;
-  outline-offset: 2px;
-}
-
 #policy:hover + .policy-label .custom-checkbox {
   border-color: #fd9222;
 }
@@ -1090,7 +1093,7 @@ address {
 
 .checkbox-text {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.33;
   letter-spacing: -0.02em;
   color: rgba(64, 64, 64, 0.6);
@@ -1196,10 +1199,22 @@ address {
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .logo {
-    font-size: 18px;
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .ingr-list li.ingredient-wrapper:nth-child(1) {
+    order: 1;
   }
+  .ingr-list li.ingredient-wrapper:nth-child(2) {
+    order: 3;
+  }
+  .ingr-list li.ingredient-wrapper:nth-child(3) {
+    order: 4;
+  }
+  .ingr-list li.ingredient-wrapper:nth-child(4) {
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 1200px) {
   .hero .wrapper {
     padding: 395px 72px 40px 72px;
   }
@@ -1238,6 +1253,15 @@ address {
   }
   .instructions {
     flex-direction: row;
+  }
+  .how-its-made .wrapper {
+    max-width: 1200px;
+  }
+  .reviews {
+    flex-direction: row;
+  }
+  .review {
+    flex: 0 1 calc(100% / 3 - 28px / 3);
   }
   .email-input {
     font-size: 18px;
