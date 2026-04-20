@@ -1140,12 +1140,13 @@ address {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: clamp(44px, 4vw, 62px);
 }
 
 .card {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   margin: 0 auto;
+  flex: 0 0 100%;
 }
 
 .card::scroll-marker {
@@ -1315,5 +1316,8 @@ address {
   }
   .email-input {
     font-size: 18px;
+  }
+  .slider.slider::scroll-marker-group {
+    display: none;
   }
 }
